@@ -2,6 +2,8 @@ package singy.springstruts2test.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+//http://localhost:8080/springstruts2test/hello.action
+
 /**
  * <code>Set welcome message.</code>
  */
