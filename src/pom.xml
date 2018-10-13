@@ -53,6 +53,12 @@
             <version>${struts2.version}</version>
         </dependency>
 
+<!--         <dependency> -->
+<!--             <groupId>strutstestcase</groupId> -->
+<!--             <artifactId>strutstestcase</artifactId> -->
+<!--             <version>2.1.4-1.2-2.4</version> -->
+<!--         </dependency> -->
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

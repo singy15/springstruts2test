@@ -1,6 +1,9 @@
-package singy.springstruts2test.actions;
+package singy.springstruts2test.actionsTest;
 
 import com.opensymphony.xwork2.ActionSupport;
+
+import singy.springstruts2test.actions.Index;
+
 import org.apache.struts2.StrutsTestCase;
 
 public class IndexTest extends StrutsTestCase {
