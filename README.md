@@ -1,0 +1,1 @@
+# springstruts2test
