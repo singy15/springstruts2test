@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- <mapper namespace="sample.mybatis.mapper.TItemMapper"> -->
+<mapper namespace="singy.springstruts2test.mappers.TItemMapper">
+  <select id="selectAll" resultType="singy.springstruts2test.entities.TItem">
+    select * from t_item
+  </select>
+
+  <select id="select" resultType="singy.springstruts2test.entities.TItem">
+    select * from t_item
+    <where>
+      <if test="name != null">
+           name = #{name}
+      </if>
+      <if test="price != null">
+           AND price = #{price}
+      </if>
+    </where>
+  </select>
+
+  <insert id="insertByParam">
+    insert into t_item (
+        name,
+        price
+    ) values (
+        #{name},
+        #{price}
+    )
+  </insert>
+
+  <insert id="insert" parameterType="singy.springstruts2test.entities.TItem">
+    insert into t_item (
+        name,
+        price
+    ) values (
+        #{name},
+        #{price}
+    )
+  </insert>
+</mapper>

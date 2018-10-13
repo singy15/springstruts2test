@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="singy.springstruts2test.mappers.TSaleMapper">
+  <resultMap id="saleResultMap" type="singy.springstruts2test.entities.TSale">
+    <id property="saleId" column="sale_id" />
+    <result property="itemId" column="item_id"/>
+    <result property="customerId" column="sl_customer_id"/>
+
+    <association property="customerInfo" javaType="singy.springstruts2test.entities.TCustomer">
+      <id property="customerId" column="cs_customer_id"/>
+      <result property="name" column="cs_name"/>
+    </association>
+  </resultMap>
+
+  <select id="selectAll" resultType="singy.springstruts2test.entities.TSale">
+    select * from t_sale
+  </select>
+
+  <select id="selectAllByMap" resultMap="saleResultMap">
+    select
+      sale_id,
+      sl.customer_id as sl_customer_id,
+      item_id,
+      cs.customer_id as cs_customer_id,
+      cs.name as cs_name
+    from t_sale as sl
+    left join t_customer as cs
+    on sl.customer_id = cs.customer_id
+  </select>
+
+  <insert id="insert" parameterType="singy.springstruts2test.entities.TSale">
+    insert into t_sale (
+        item_id,
+        amount,
+        customer_id,
+        customer_name
+    ) values (
+        #{itemId},
+        #{amount},
+        #{customerId},
+        (select name from t_customer where customer_id = #{customerId})
+    )
+  </insert>
+</mapper>
