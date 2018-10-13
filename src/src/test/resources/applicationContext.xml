@@ -40,9 +40,9 @@
   <bean id="dataSource"
     class="org.springframework.jdbc.datasource.DriverManagerDataSource">
     <property name="driverClassName" value="org.postgresql.Driver" />
-    <property name="url" value="jdbc:postgresql://localhost:5432/mybatistest" />
-    <property name="username" value="mybatistestuser"/>
-    <property name="password" value="mybatistestuserpasswd"/>
+    <property name="url" value="jdbc:postgresql://localhost:5432/ss2t" />
+    <property name="username" value="ss2tuser"/>
+    <property name="password" value="ss2tuserpasswd"/>
   </bean>
 
 <!--   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"> -->
