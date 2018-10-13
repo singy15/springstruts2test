@@ -1,6 +1,10 @@
 package singy.springstruts2test.actions;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.opensymphony.xwork2.ActionSupport;
+
+import singy.springstruts2test.services.FooService;
 
 //http://localhost:8080/springstruts2test/hello.action
 
@@ -9,8 +13,12 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class HelloAction extends ActionSupport {
 
+    @Autowired
+    private FooService service;
+
     public String execute() throws Exception {
-        setMessage(getText(MESSAGE));
+//        setMessage(getText(MESSAGE));
+        setMessage(service.getMessage());
         return SUCCESS;
     }
 
