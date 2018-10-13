@@ -5,6 +5,7 @@
   xmlns:p="http://www.springframework.org/schema/p"
   xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
   xmlns:aop="http://www.springframework.org/schema/aop"
+  xmlns:tx="http://www.springframework.org/schema/tx"
   xsi:schemaLocation="
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
@@ -14,6 +15,8 @@
         http://mybatis.org/schema/mybatis-spring.xsd
         http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
         ">
 
   <context:annotation-config />
@@ -63,5 +66,12 @@
   <mybatis:scan base-package="singy.springstruts2test.mappers" />
 
   <aop:aspectj-autoproxy />
+
+  <tx:annotation-driven />
+
+  <bean id="transactionManager"
+    class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <property name="dataSource" ref="dataSource" />
+  </bean>
 
 </beans>

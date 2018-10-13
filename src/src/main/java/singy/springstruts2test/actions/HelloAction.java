@@ -1,13 +1,16 @@
 package singy.springstruts2test.actions;
 
 import java.util.List;
+import java.util.Random;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 import singy.springstruts2test.entities.MUser;
 import singy.springstruts2test.entities.TItem;
+import singy.springstruts2test.mappers.TItemMapper;
 import singy.springstruts2test.services.FooService;
 import singy.springstruts2test.services.IUserService;
 import singy.springstruts2test.services.ItemService;
@@ -31,6 +34,9 @@ public class HelloAction extends ActionSupport {
     @Autowired
     private ItemService itemService;
 
+    @Autowired
+    private TItemMapper itemMapper;
+
     public String execute() throws Exception {
 //        setMessage(getText(MESSAGE));
         setMessage(fooService.getMessage());
@@ -45,6 +51,10 @@ public class HelloAction extends ActionSupport {
         for (MUser user : lsUser) {
             System.out.println(user.toString());
         }
+
+
+        Random rnd = new Random();
+        itemMapper.insertByParam(RandomStringUtils.randomAlphabetic(10), rnd.nextInt(1000));
 
         return SUCCESS;
     }

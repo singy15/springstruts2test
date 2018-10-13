@@ -27,7 +27,7 @@
     ) values (
         #{name},
         #{price}
-    )
+    );
   </insert>
 
   <insert id="insert" parameterType="singy.springstruts2test.entities.TItem">
